@@ -1,0 +1,127 @@
+The file includes these columns:
+
+last_name -- the legislator's last name
+first_name -- the legislator's first name
+birthday -- the legislator's birthday
+gender -- the legislator's gender
+type -- the chamber in which the legislator served - either Senate (sen) or House of Representatives (rep)
+state -- the state the legislator represents
+party -- the legislator's party affiliation
+As you can see from the data extract, some rows contain missing values for some columns. For example, the gender and party columns are missing in the second row after the header row. Missing data can cause errors, so it needs to be dealt with. In this mission, we'll explore some of the errors that occur when we ignore missing values and how to handle them.
+
+
+We've read legislators.csv into the variable legislators, which is a list of lists. Extract the gender column from legislators and assign it to the variable gender.
+
+Create an empty list named gender.
+Loop over each item in legislators.
+Append the fourth element in the item to gender.
+Convert gender to a set.
+
+Print out gender and see what the unique values are.
+
+--------
+Extract the party column from legislators and convert it to a set. Assign the result to party.
+Print out party and inspect the values.
+Print out legislators and inspect the data.
+------
+
+Loop through each row in rows.
+Check whether the party column (index 6) has a missing value.
+If so, replace it with the string No Party.
+
+----
+Replace any missing values in the gender column of legislators with the string M.
+When you're done, the gender column of legislators should only contain the values F and M.
+
+---
+
+Create an empty list named birth_years.
+Loop through each item in legislators.
+
+Split the value in the birthday column on the - character.
+Assign the result to parts.
+Extract the first item in parts and append it to birth_years.
+At the end, birth_years will be a list containing the birth years of all the legislators in legislators.
+
+----
+
+Loop through each element in birth_years.
+Assign the element to year.
+Try to convert year to an integer using the int() function.
+Wrap the conversion in a try/except block.
+Use the pass keyword in the except statement body.
+Append year to converted_years.
+
+----
+Loop through each row in legislators.
+Parse the birth year from the birthday column.
+Convert the birth year to an integer, and assign it to birth_year.
+Wrap this code in a try/except block.
+If there's an exception, assign 0 to birth_year.
+Append birth_year to the row with the append() method.
+When finished, legislators should have an extra column for birth year.
+---
+Create a variable called last_value, and set it to 1.
+Loop through each row in legislators.
+If the year column (index 7) equals 0, replace it with last_value.
+Assign the value of the year column (index 7) to last_value.
+After the code runs, each row previously containing 0 for birth_year column will now instead have the previous row's value for the same column.
+---
+
+
+In the previous mission, we worked with legislators.csv, which contains information on every person who has served in the U.S. Congress. We cleaned up some missing data and added a column for birth year.
+
+We'll continue to work with the same data set in this mission. Here's a preview of it in CSV format:
+
+
+last_name,first_name,birthday,gender,type,state,party,birth_year
+Bassett,Richard,1745-04-02,M,sen,DE,Anti-Administration,1745
+Bland,Theodorick,1742-03-21,M,rep,VA,1742
+Burke,Aedanus,1743-06-16,M,rep,SC,1743
+Carroll,Daniel,1730-07-22,M,rep,MD,1730
+The data set includes the following columns:
+
+last_name -- The legislator's last name
+first_name -- The legislator's first name
+birthday -- the legislator's birthday
+gender -- The legislator's gender
+type -- The chamber in which the legislator served - either Senate (sen) or House of Representatives (rep)
+state -- The state the legislator represents
+party -- The legislator's party affiliation
+birth_year -- integer values for the year the legislator was born
+In this mission, we'll use the data to find the most common names among U.S. legislators of each gender. Before diving into this, we'll explore some critical concepts, such as enumeration.
+
+----
+Create an empty dictionary called name_counts.
+Loop through each row in legislators.
+If the gender column of the row equals F and the year column is greater than 1940:
+Assign the first_name column of the row to the variable name.
+If name is in name_counts:
+Add 1 to the value associated with name in name_counts.
+If name isn't in name_counts:
+Set the value associated with name in name_counts to 1.
+When the loop finishes, name_counts should contain each unique name in the first_name column of legislators as a key, and the corresponding number of times it appeared as the value.
+
+----
+name_counts is a dictionary where the keys are female first names from legislators, and the values are the number of times the names occured after 1940
+Set max_value to None.
+Loop through the keys in name_counts.
+Assign the value associated with the key to count.
+If max_value is None, or count is greater than max_value:
+Assign count to max_value.
+At the end of the loop, max_value will contain the largest value in name_counts.
+
+----
+Loop through the keys in name_counts.
+If any value in name_counts equals 2, append its key to top_female_names.
+When you're finished, top_female_names will be a list of the most common names of female legislators.
+
+----
+Create a dictionary called male_name_counts.
+Loop through legislators.
+Count how many times each name with "M" in the gender column and a birth year after 1940 occurs.
+Store the results in male_name_counts.
+Find the highest value in male_name_counts and assign it to highest_male_count.
+Append any keys from male_name_counts with a value equal to highest_male_count to top_male_names.
+
+----

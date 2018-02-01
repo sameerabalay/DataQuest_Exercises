@@ -1,0 +1,43 @@
+Our ultimate goal is to count how many times each type of weather occurred over the course of the year. During this mission, we'll learn how to manipulate the data with lists, and make good progress towards that goal. In the next mission, we'll fit all the pieces together and tally up the data.
+
+-----
+Create an empty list and assign to weather_data.
+Open and read in la_weather.csv.
+Split the data on the newline character to convert it to a list of rows.
+Split each row on the comma and append each list to weather_data.
+
+----
+Loop over each row in weather_data.
+Append the second item in each row to the weather list.
+When complete, weather should contain each value from the Type of Weather column.
+
+----
+Count the number of items in weather. You can accomplish this by:
+
+Looping over each element in weather.
+Adding 1 to count for each element.
+When finished, count should equal the number of items in weather.
+
+----
+Slice the weather list to remove the header.
+The slice should only remove the first element in the list.
+Assign the slice to new_weather.
+
+---
+Loop through each item in the weather_types list.
+Check whether the item occurs in the new_weather list.
+Append the result of the check to weather_type_found.
+At the end, weather_type_found should be a list of Boolean values.
+
+---
+Count how many times each type of weather occurs in the weather list, and store the results in a new dictionary called weather_counts.
+When finished, weather_counts should contain a key for each different type of weather in the weather list, along with its associated frequency. Here's a preview of how the result should format the weather_counts dictionary (note that you'll be using real values, rather than the dummy ones below):
+{
+    'Fog': 0,
+    'Fog-Rain': 0,
+    ....
+}
+
+
+
+
